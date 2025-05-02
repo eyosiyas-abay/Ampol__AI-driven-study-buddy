@@ -23,3 +23,7 @@ input,
 textarea {
     @apply text-[14px];
 }
+
+.text-md {
+    @apply text-[16px];
+}
