@@ -20,10 +20,15 @@ a,
 span,
 button,
 input,
-textarea {
+textarea,
+li {
     @apply text-[14px];
 }
 
 .text-md {
     @apply text-[16px];
+}
+
+.text-xs {
+    @apply text-[12px];
 }
