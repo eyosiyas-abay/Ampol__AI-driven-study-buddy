@@ -1,4 +1,4 @@
-<header class="flex items-center justify-between py-4 px-6 w-[1266px] mx-auto bg-gray-100 rounded-full">
+<header class="flex items-center justify-between py-4 px-6 w-[1266px] mx-auto bg-[#ffffff] rounded-full">
     <div class="w-24">
         <x-ui.logo />
     </div>

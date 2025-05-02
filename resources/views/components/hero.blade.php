@@ -1,14 +1,19 @@
-<section class="flex flex-col items-center justify-center h-[500px] mt-5">
-    <h3 class="bg-red-400 flex items-center justify-center rounded-lg py-2.5 px-4 text-sm">
-        Study Smarter with AI
+<section class="flex flex-col items-center justify-center h-[600px] pb-5">
+    <h3
+        class="font-semibold border border-gray-300 bg-gradient-to-r from-[#3a0ca3] via-[#b5179e] to-[#f72585] bg-clip-text text-transparent flex items-center justify-center rounded-full py-2.5 px-4 text-sm">
+        Master Any Subject with AI-Powered Help
     </h3>
-    <h1 class="text-[3.5em] w-[800px] text-center mb-5 mt-6">
-        Powerful & Effortless Learning with Your AI Study Buddy
+    <h1 class="text-[3.5em] w-[800px] text-center mb-5 mt-6 font-semibold">
+        Powerful & Effortless Learning with Your <b
+            class="bg-gradient-to-r from-[#3a0ca3] via-[#b5179e] to-[#f72585] bg-clip-text text-transparent font-semibold">AI
+            Study
+            Buddy</b>
     </h1>
 
     <p class="text-2xl">AI-driven study help, anytime, anywhere.</p>
 
-    <div class="mt-10">
+    <div class="mt-10 flex items-center gap-3">
+        <x-forms.button />
         <x-forms.button />
     </div>
 </section>

@@ -11,9 +11,13 @@
         "Noto Color Emoji";
 }
 
+body {
+    @apply bg-[#f4f5f7];
+}
+
 p,
-span,
 a,
+span,
 button,
 input,
 textarea {
