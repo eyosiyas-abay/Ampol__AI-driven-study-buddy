@@ -14,13 +14,13 @@ class Button extends Component
     /**
      * Create a new component instance.
      */
-    public function __construct(public string | ButtonType $type = ButtonType::Primary, public string $class = '')
+    public function __construct(public string | ButtonType $type = ButtonType::Primary, public string $class = '', public bool $loading = false)
     {
         if (is_string($type)) {
             $type = ButtonType::from(strtolower($type));
         }
 
-        $this->classes = 'py-2 px-4 rounded-lg flex items-center justify-center text-white cursor-pointer whitespace-nowrap';
+        $this->classes = 'h-10 px-4 rounded-lg flex items-center justify-center text-white cursor-pointer whitespace-nowrap';
 
         $this->classes .= match ($type) {
             ButtonType::Primary => ' bg-blue-500 gap-1.5 text-white border border-blue-500',
