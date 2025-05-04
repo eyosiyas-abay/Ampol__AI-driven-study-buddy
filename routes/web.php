@@ -24,3 +24,7 @@ Route::prefix('email/verify')->group(function () {
         return redirect('/home');
     })->middleware(['auth', 'signed'])->name('verification.verify');
 });
+
+Route::get('/mail', function () {
+    return view('mail');
+});

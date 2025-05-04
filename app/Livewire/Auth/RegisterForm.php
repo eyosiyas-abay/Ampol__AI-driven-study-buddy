@@ -2,8 +2,10 @@
 
 namespace App\Livewire\Auth;
 
+use App\Mail\VerifyEmailMail;
 use App\Models\User;
 use Illuminate\Auth\Events\Registered;
+use Illuminate\Support\Facades\Mail;
 use Livewire\Component;
 
 class RegisterForm extends Component
@@ -33,6 +35,11 @@ class RegisterForm extends Component
         ]), function ($user) {
             event(new Registered($user));
             $user->sendEmailVerificationNotification();
+
+            // Mail::to('jo.goldicty@gmail.com')->send(new VerifyEmailMail(
+            //     name: "Eyosiyas",
+            //     actionUrl: 'what',
+            // ));
         });
     }
 
