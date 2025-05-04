@@ -4,8 +4,9 @@ namespace App\Livewire\Auth;
 
 use Livewire\Component;
 
-class LoginForm extends Component
+class RegisterForm extends Component
 {
+    public string $name = '';
     public string $email = '';
     public string $password = '';
 
@@ -17,13 +18,14 @@ class LoginForm extends Component
     public function rules(): array
     {
         return [
-            'email' => 'required|email|max:255',
-            'password' => 'required|string|min:8|max:255',
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|max:255|unique:users,email',
+            'password' => 'required|string|min:8|confirmed',
         ];
     }
 
     public function render()
     {
-        return view('livewire.auth.login-form');
+        return view('livewire.auth.register-form');
     }
 }
