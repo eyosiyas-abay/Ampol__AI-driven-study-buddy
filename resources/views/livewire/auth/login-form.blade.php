@@ -1,4 +1,4 @@
-<div class="mt-5 flex flex-col gap-2.5" x-data="{
+<form wire:submit="submit" class="mt-5 flex flex-col gap-2.5" x-data="{
     email: @entangle('email'),
     password: @entangle('password'),
     type: 'password',
@@ -30,4 +30,4 @@
     <x-forms.button class="mt-5" wire:target="submit" wire:click="submit">
         Login
     </x-forms.button>
-</div>
+</form>
