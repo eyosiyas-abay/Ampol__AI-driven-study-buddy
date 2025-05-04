@@ -2,8 +2,8 @@
 
 namespace App\Livewire\Auth;
 
-use App\Models\EmailVerification;
 use App\Models\User;
+use Illuminate\Auth\Events\Registered;
 use Livewire\Component;
 
 class RegisterForm extends Component
@@ -26,13 +26,14 @@ class RegisterForm extends Component
 
     public function registerUser(): void
     {
-        $user = tap(new User, fn($user) =>  $user->fill([
+        tap(User::create([
             'name' => $this->name,
             'email' => $this->email,
             'password' => $this->password
-        ]));
-
-        $user->sendEmailVerificationNotification();
+        ]), function ($user) {
+            event(new Registered($user));
+            $user->sendEmailVerificationNotification();
+        });
     }
 
     public function submit()
