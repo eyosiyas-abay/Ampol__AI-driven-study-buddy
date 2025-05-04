@@ -14,4 +14,5 @@ Route::get('quiz-note', [QuizNoteController::class, 'index'])->name('quiz-note')
 Route::prefix('auth')->group(function () {
     Route::get('login', [LoginController::class, 'index'])->name('auth.login');
     Route::get('register', [RegisterController::class, 'index'])->name('auth.register');
+    Route::get('register/confirm', [RegisterController::class, 'confirm'])->name('auth.confirm');
 });

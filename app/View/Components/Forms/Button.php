@@ -20,10 +20,10 @@ class Button extends Component
             $type = ButtonType::from(strtolower($type));
         }
 
-        $this->classes = 'py-2 px-4 rounded-lg flex items-center justify-center text-white cursor-pointer';
+        $this->classes = 'py-2 px-4 rounded-lg flex items-center justify-center text-white cursor-pointer whitespace-nowrap';
 
         $this->classes .= match ($type) {
-            ButtonType::Primary => ' bg-blue-500 gap-1.5 text-white',
+            ButtonType::Primary => ' bg-blue-500 gap-1.5 text-white border border-blue-500',
             ButtonType::Secondary => ' p-0 text-black',
             ButtonType::Outline => ' border border-gray-300 text-black',
             ButtonType::Icon => ' bg-blue-500 gap-1.5',

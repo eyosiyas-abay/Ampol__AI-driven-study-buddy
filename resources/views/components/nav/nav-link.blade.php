@@ -1,3 +1,3 @@
-<a href="/">
-    {{ $slot }}
+<a href="{{ $href }}">
+    {{ $text }}
 </a>

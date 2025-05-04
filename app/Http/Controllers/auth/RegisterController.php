@@ -11,4 +11,9 @@ class RegisterController extends Controller
     {
         return view('pages.auth.register');
     }
+
+    public function confirm()
+    {
+        return view('pages.auth.register-confirm');
+    }
 }

@@ -3,12 +3,7 @@
         <x-ui.logo />
     </div>
 
-    <div class="flex items-center gap-5">
-        <x-nav.index />
-        <x-nav.index />
-        <x-nav.index />
-        <x-nav.index />
-    </div>
+    <x-nav.index />
 
     <div class="w-40 flex justify-end">
         <x-forms.button type="icon">Get Started

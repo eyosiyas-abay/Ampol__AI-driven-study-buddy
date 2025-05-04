@@ -13,7 +13,11 @@
     <p class="text-2xl">AI-driven study help, anytime, anywhere.</p>
 
     <div class="mt-10 flex items-center gap-3">
-        <x-forms.button />
-        <x-forms.button />
+        <x-forms.input placeholder="youremail@example.com" class="flex-1 w-[220px]">
+            <x-slot name="left">
+                <x-heroicon-o-at-symbol class="w-4 h-4 text-gray-400" />
+            </x-slot>
+        </x-forms.input>
+        <x-forms.button>Get Started Now</x-forms.button>
     </div>
 </section>

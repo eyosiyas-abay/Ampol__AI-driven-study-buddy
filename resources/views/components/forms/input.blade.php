@@ -1,17 +1,30 @@
 <div class="flex flex-col items-start gap-1 w-full">
-    <label class="text-sm text-gray-600">Email</label>
+    @if ($label ?? false)
+        <label class="text-sm text-gray-600">{{ $label }}</label>
+    @endif
+
     <div class="w-full relative">
-        <div class="absolute left-0 top-0 h-full rounded-sm flex items-center justify-center px-2">
-            <x-heroicon-o-envelope class="w-6 h-6 text-blue-600" />
+        @isset($left)
+            <div class="absolute left-0 top-0 h-full flex items-center px-3">
+                {{ $left }}
+            </div>
+            @endif
+
+            <input type="{{ $type }}" placeholder="{{ $placeholder }}"
+                {{ $attributes->twMerge([
+                    'class' => $classes . (isset($left) ? ' pl-9' : '') . (isset($right) ? ' pr-9' : ''),
+                ]) }}>
+
+            @isset($right)
+                <div class="absolute right-0 top-0 h-full flex items-center px-2">
+                    {{ $right }}
+                </div>
+            @endisset
         </div>
 
-        <input type="text" class="w-full border border-gray-300 rounded-lg p-2">
-
-        <div class="absolute right-0 top-0 h-full rounded-sm flex items-center justify-center px-2">
-            <x-heroicon-o-eye class="w-6 h-6 text-blue-600" />
-        </div>
+        @if ($error ?? false)
+            <span class="flex items-center gap-1 text-xs text-red-500">
+                {{ $error }}
+            </span>
+        @endif
     </div>
-    <span class="flex items-center gap-1 text-xs text-red-500">
-        Not a valid email address
-    </span>
-</div>
