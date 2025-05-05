@@ -58,13 +58,13 @@
             your email address by clicking the button below:
         </p>
 
-        <x-mail::button url="nigga">Verify Now</x-mail::button>
+        <x-mail::button url="{{ $url }}">Verify Now</x-mail::button>
 
         <div style="width: 500px; text-align: left;">
             <p style="margin-top: 56px;">If the button above doesn't work, you can copy and paste the following link
                 into
                 your browser:</p>
-            <a href="/" style="color: #3b82f6;">http://google.com/hl0loworldlsdfdweriowuepweirjiwiokd</a>
+            <a href="{{ $url }}" style="color: #3b82f6;">{{ $url }}</a>
         </div>
     </div>
 </x-mail::message>
