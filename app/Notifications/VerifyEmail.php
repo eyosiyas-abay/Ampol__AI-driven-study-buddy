@@ -17,15 +17,13 @@ class VerifyEmail extends VerifyEmailNotification
             ->subject('Verify Your Email Address (Ampol)');
     }
 
-
     protected function verificationUrl($notifiable)
     {
         return URL::signedRoute(
             'verification.verify',
             [
                 'id' => $notifiable->getKey(),
-                'hash' => hash_hmac('sha256', $notifiable->getEmailForVerification(), config('app.key')),
-                'expires' => now()->addMinutes(60)->timestamp,
+                'hash' => sha1($notifiable->getEmailForVerification()),
             ]
         );
     }

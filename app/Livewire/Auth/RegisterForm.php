@@ -33,7 +33,6 @@ class RegisterForm extends Component
             'password' => $this->password
         ]), function ($user) {
             event(new Registered($user));
-            Auth::login($user);
             $user->sendEmailVerificationNotification();
         });
     }

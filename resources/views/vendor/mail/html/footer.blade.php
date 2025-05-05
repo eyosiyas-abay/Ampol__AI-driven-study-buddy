@@ -5,5 +5,5 @@
     <p>You can share your feedbacks or contact me
         <a href="https://www.linkedin.com/in/eyosiyas-abay/" target="_blank" style="color: #3b82f6;">here</a>.
     </p>
-    <p style="color: #6b7280;">@2025 Ampol</p>
+    <p style="color: #6b7280; margin-top: -10px;">@2025 Ampol</p>
 </footer>

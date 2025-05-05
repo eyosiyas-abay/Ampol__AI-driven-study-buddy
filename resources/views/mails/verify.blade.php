@@ -64,7 +64,7 @@
             <p style="margin-top: 56px;">If the button above doesn't work, you can copy and paste the following link
                 into
                 your browser:</p>
-            <a href="{{ $url }}" style="color: #3b82f6;">{{ $url }}</a>
+            <a href="{{ $url }}" style="color: #3b82f6; word-break: break-all;">{{ $url }}</a>
         </div>
     </div>
 </x-mail::message>
