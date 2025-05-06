@@ -12,7 +12,8 @@
 
             <input type="{{ $type }}" placeholder="{{ $placeholder }}"
                 {{ $attributes->twMerge([
-                    'class' => $classes . (isset($left) ? ' pl-9' : '') . (isset($right) ? ' pr-9' : ''),
+                    'class' =>
+                        $classes . (isset($left) ? ' pl-9' : '') . (isset($right) ? ' pr-9' : '') . ($error ? ' border-red-500' : ''),
                 ]) }}>
 
             @isset($right)

@@ -1,19 +1,21 @@
 <?php
 
-namespace App\View\Components\nav;
+namespace App\View\Components;
 
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class NavLink extends Component
+class ErrorMsg extends Component
 {
+    public string $error = '';
+
     /**
      * Create a new component instance.
      */
-    public function __construct(public string $href = '', public string $text = '')
+    public function __construct(string $error = '')
     {
-        //
+        $this->error = $error;
     }
 
     /**
@@ -21,6 +23,6 @@ class NavLink extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.nav.nav-link');
+        return view('components.error-msg');
     }
 }
