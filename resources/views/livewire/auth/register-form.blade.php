@@ -21,7 +21,7 @@
             <x-heroicon-o-key class="w-4 h-4 text-gray-400" />
         </x-slot>
         <x-slot name="right">
-            <button class="cursor-pointer" x-on:click="type = type == 'text' ? 'password' : 'text'">
+            <button class="cursor-pointer" x-on:click="type = type == 'text' ? 'password' : 'text'" type="button">
                 <template x-if="type == 'text'">
                     <x-heroicon-o-eye class="w-4 h-4 text-gray-400" />
                 </template>
@@ -36,7 +36,7 @@
             <x-heroicon-o-key class="w-4 h-4 text-gray-400" />
         </x-slot>
         <x-slot name="right">
-            <button class="cursor-pointer" x-on:click="type = type == 'text' ? 'password' : 'text'">
+            <button class="cursor-pointer" x-on:click="type = type == 'text' ? 'password' : 'text'" type="button">
                 <template x-if="type == 'text'">
                     <x-heroicon-o-eye class="w-4 h-4 text-gray-400" />
                 </template>
