@@ -4,7 +4,6 @@ namespace App\Livewire\Auth;
 
 use App\Models\User;
 use Illuminate\Auth\Events\Registered;
-use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
 class RegisterForm extends Component
@@ -33,7 +32,7 @@ class RegisterForm extends Component
             'password' => $this->password
         ]), function ($user) {
             event(new Registered($user));
-            $user->sendEmailVerificationNotification();
+            $this->redirectRoute('verification.sent');
         });
     }
 
