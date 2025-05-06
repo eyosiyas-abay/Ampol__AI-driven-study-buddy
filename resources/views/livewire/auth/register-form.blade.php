@@ -1,22 +1,22 @@
-<form wire:submit="submit" class="mt-5 flex flex-col gap-2.5" x-data="{
+<form wire:submit.prevent="submit" class="mt-5 flex flex-col gap-2.5" x-data="{
     name: @entangle('name'),
     email: @entangle('email'),
     password: @entangle('password'),
-    confirmPassword: '',
+    passwordConfirm: @entangle('passwordConfirm'),
     type: 'password',
 }">
-    <x-forms.input label="Name" x-model="name">
+    <x-forms.input label="Name" x-model="name" :error="$errors->first('name')">
         <x-slot name="left">
             <x-heroicon-o-user class="w-4 h-4 text-gray-400" />
         </x-slot>
     </x-forms.input>
 
-    <x-forms.input label="Email" x-model="email">
+    <x-forms.input label="Email" x-model="email" :error="$errors->first('email')">
         <x-slot name="left">
             <x-heroicon-o-envelope class="w-4 h-4 text-gray-400" />
         </x-slot>
     </x-forms.input>
-    <x-forms.input label="Password" x-bind:type="type" x-model="password">
+    <x-forms.input label="Password" x-bind:type="type" x-model="password" :error="$errors->first('password')">
         <x-slot name="left">
             <x-heroicon-o-key class="w-4 h-4 text-gray-400" />
         </x-slot>
@@ -31,7 +31,7 @@
             </button>
         </x-slot>
     </x-forms.input>
-    <x-forms.input label="Confirm Password" x-bind:type="type" x-model="confirmPassword">
+    <x-forms.input label="Confirm Password" x-bind:type="type" x-model="passwordConfirm" :error="$errors->first('passwordConfirm')">
         <x-slot name="left">
             <x-heroicon-o-key class="w-4 h-4 text-gray-400" />
         </x-slot>
