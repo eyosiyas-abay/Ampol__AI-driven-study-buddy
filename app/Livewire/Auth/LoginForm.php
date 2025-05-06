@@ -2,6 +2,9 @@
 
 namespace App\Livewire\Auth;
 
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Livewire\Component;
 
 class LoginForm extends Component
@@ -12,13 +15,23 @@ class LoginForm extends Component
     public function submit()
     {
         $this->validate();
+
+        $user = User::where('email', $this->email)->first();
+
+        if (! $user || ! Hash::check($this->password, $user->password)) {
+            $this->addError('auth', 'The provided credentials are incorrect.');
+            return;
+        }
+
+        Auth::login($user);
+        $this->redirectRoute('get-started');
     }
 
     public function rules(): array
     {
         return [
             'email' => 'required|email|max:255',
-            'password' => 'required|string|min:8|max:255',
+            'password' => 'required|string|max:255',
         ];
     }
 
