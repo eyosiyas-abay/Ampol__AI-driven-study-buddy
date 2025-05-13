@@ -3,9 +3,9 @@
         <div class="w-80 px-6 p-5 border border-gray-200 rounded-lg">
             <h4 class="pb-2 border-b border-gray-200">Details</h4>
 
-            <ul>
-                <li>test</li>
-                <li>test</li>
+            <ul class="mt-1.5">
+                <li class="text-gray-600">This is something</li>
+                <li class="text-gray-600">Another one</li>
             </ul>
         </div>
 
