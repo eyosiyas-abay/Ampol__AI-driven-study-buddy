@@ -6,6 +6,7 @@ use App\Http\Controllers\pages\GetStartedController;
 use App\Http\Controllers\pages\HomeController;
 use App\Http\Controllers\pages\QuizNoteController;
 use App\Http\Requests\VerifyRequest;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
 
 Route::get('', [HomeController::class, 'index'])->name('home');
@@ -41,3 +42,11 @@ Route::prefix('email/verify')->group(function () {
 Route::get('/mail', function () {
     return view('mail');
 });
+
+Route::get('/lang/{locale}', function (string $locale) {
+    if (in_array($locale, ['en', 'zh', 'am', 'ar', 'hi', 'es'])) {
+        Session::put('locale', $locale);
+    }
+
+    return redirect()->back();
+})->name('language.switch');

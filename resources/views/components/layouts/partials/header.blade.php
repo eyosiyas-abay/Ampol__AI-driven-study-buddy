@@ -12,7 +12,7 @@
                     <img src="{{ asset('images/avatar.svg') }}" alt="" class="w-full h-full">
                 </button>
 
-                <div class="shadow-2xl shadow-blue-500/20 absolute bg-white border-t border-t-gray-100 top-9 right-0 min-w-36 rounded-lg flex flex-col py-1"
+                <div class="shadow-2xl shadow-blue-500/20 absolute bg-white border-t border-t-gray-100 top-9 right-0 min-w-36 rounded-lg flex flex-col py-1 z-30"
                     x-show="isOpen">
                     <p class="px-4 py-2 text-left text-sm text-gray-500">Eyosiyas A.</p>
                     <form method="POST" action="{{ route('auth.logout') }}" class="w-full">
@@ -21,7 +21,7 @@
                             class="px-4 py-2 hover:bg-blue-100 text-left cursor-pointer text-sm border-t border-t-gray-200 flex items-center gap-1.5 w-full"
                             type="submit">
                             <x-heroicon-o-power class="w-3.5 h-3.5 text-red-500" />
-                            Logout
+                            @lang('Logout')
                         </button>
                     </form>
                 </div>
@@ -30,37 +30,48 @@
 
         @guest
             <x-nav.link type="primary" href="{{ route('get-started') }}">
-                Get Started
+                @lang('Get Started')
                 <x-heroicon-o-arrow-up-right class="w-3.5 h-3.5" />
             </x-nav.link>
         @endguest
 
-        <div class="flex items-center gap-1 relative" x-data="{ isOpen: false }">
+        <div class="flex items-center gap-1 relative" x-data="{
+            isOpen: false,
+            changeLanguage(lang) {
+                window.location.href = '/lang/' + lang;
+            }
+        }">
             <button class="flex items-center gap-1 cursor-pointer" x-on:click="isOpen=!isOpen">
                 <x-heroicon-o-globe-europe-africa class="w-5 h-5" />
                 <x-heroicon-o-chevron-down class="w-3 h-3" />
             </button>
 
-            <div class="shadow-2xl shadow-blue-500/20 absolute bg-white border-t border-t-gray-100 top-9 right-0 min-w-36 rounded-lg flex flex-col py-1"
+            <div class="shadow-2xl shadow-blue-500/20 absolute bg-white border-t border-t-gray-100 top-9 right-0 min-w-36 rounded-lg flex flex-col py-1 z-30"
                 x-show="isOpen">
-                <button class="px-4 py-2 hover:bg-blue-100 text-left cursor-pointer text-sm">
+                <x-nav.link class="px-4 py-2 hover:bg-blue-100 text-left cursor-pointer text-sm"
+                    href="{{ route('language.switch', 'en') }}">
                     English
-                </button>
-                <button class="px-4 py-2 hover:bg-blue-100 text-left cursor-pointer text-sm">
+                </x-nav.link>
+                <x-nav.link class="px-4 py-2 hover:bg-blue-100 text-left cursor-pointer text-sm"
+                    href="{{ route('language.switch', 'zh') }}">
                     中国人
-                </button>
-                <button class="px-4 py-2 hover:bg-blue-100 text-left cursor-pointer text-sm">
+                </x-nav.link>
+                <x-nav.link class="px-4 py-2 hover:bg-blue-100 text-left cursor-pointer text-sm"
+                    href="{{ route('language.switch', 'am') }}">
                     አማርኛ
-                </button>
-                <button class="px-4 py-2 hover:bg-blue-100 text-right cursor-pointer text-sm">
+                </x-nav.link>
+                <x-nav.link class="px-4 py-2 hover:bg-blue-100 text-right cursor-pointer text-sm"
+                    href="{{ route('language.switch', 'ar') }}">
                     عربي
-                </button>
-                <button class="px-4 py-2 hover:bg-blue-100 text-left cursor-pointer text-sm">
+                </x-nav.link>
+                <x-nav.link class="px-4 py-2 hover:bg-blue-100 text-left cursor-pointer text-sm"
+                    href="{{ route('language.switch', 'hi') }}">
                     हिन्दी
-                </button>
-                <button class="px-4 py-2 hover:bg-blue-100 text-left cursor-pointer text-sm">
+                </x-nav.link>
+                <x-nav.link class="px-4 py-2 hover:bg-blue-100 text-left cursor-pointer text-sm"
+                    href="{{ route('language.switch', 'es') }}">
                     Española
-                </button>
+                </x-nav.link>
             </div>
         </div>
     </div>
