@@ -12,7 +12,7 @@
                     <img src="{{ asset('images/avatar.svg') }}" alt="" class="w-full h-full">
                 </button>
 
-                <div class="shadow-2xl shadow-blue-500/20 absolute bg-white border-t border-t-gray-100 top-9 right-0 min-w-36 rounded-lg flex flex-col py-1"
+                <div class="shadow-2xl shadow-blue-500/20 absolute bg-white border-t border-t-gray-100 top-9 right-0 min-w-36 rounded-lg flex flex-col py-1 z-30"
                     x-show="isOpen">
                     <p class="px-4 py-2 text-left text-sm text-gray-500">Eyosiyas A.</p>
                     <form method="POST" action="{{ route('auth.logout') }}" class="w-full">
@@ -46,7 +46,7 @@
                 <x-heroicon-o-chevron-down class="w-3 h-3" />
             </button>
 
-            <div class="shadow-2xl shadow-blue-500/20 absolute bg-white border-t border-t-gray-100 top-9 right-0 min-w-36 rounded-lg flex flex-col py-1"
+            <div class="shadow-2xl shadow-blue-500/20 absolute bg-white border-t border-t-gray-100 top-9 right-0 min-w-36 rounded-lg flex flex-col py-1 z-30"
                 x-show="isOpen">
                 <x-nav.link class="px-4 py-2 hover:bg-blue-100 text-left cursor-pointer text-sm"
                     href="{{ route('language.switch', 'en') }}">
