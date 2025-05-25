@@ -1,4 +1,8 @@
 <div x-data="dropzone()">
+    <x-ui.modal>
+        @livewire('quiz-note.generate-quiz-options')
+    </x-ui.modal>
+
     <div class="w-[1266px] h-[400px] bg-white mx-auto rounded-3xl mt-5 p-3" x-on:dragover.prevent
         x-on:dragenter="handleDragEnter" x-on:dragleave="handleDragLeave" x-on:drop="handleDrop">
         <div class="w-full h-full border-2 border-gray-300 border-dotted rounded-xl flex items-center justify-center flex-col relative"
@@ -54,9 +58,10 @@
                 <span x-text="uploadedFileName"></span>
             </p>
 
-            <x-forms.button class="px-2 h-7 text-sm font-light">
+            <x-forms.button
+                class="px-2 h-7 text-sm font-light text-blue-500 bg-transparent hover:bg-gray-100 transition-all">
                 Continue
-                <x-heroicon-o-chevron-right class="w-3.5 h-3.5 text-white" />
+                <x-heroicon-o-chevron-right class="w-3.5 h-3.5 mr-[-2px] text-blue-500" />
             </x-forms.button>
         </div>
     </div>

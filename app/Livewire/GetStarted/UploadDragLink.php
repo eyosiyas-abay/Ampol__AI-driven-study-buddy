@@ -29,17 +29,19 @@ class UploadDragLink extends Component
 
         $this->fileContent = $this->readFileContent($fileData['content'], $this->fileType, $filePath);
 
-        $llm = new LLMService();
-
-        // only for testing
-        dd($llm->generateQuiz($this->fileContent));
-
         $this->dispatch('file-uploaded', [
             'content' => $this->fileContent,
             'type' => $this->fileType,
             'name' => $fileData['name'],
             'size' => $fileData['size'],
         ]);
+    }
+
+    #[On('generate-quiz')]
+    public function generateQuiz($options)
+    {
+        $llm = new LLMService();
+        $llm->generateQuiz($this->fileContent, $options);
     }
 
     private function getFileType($fileName)
