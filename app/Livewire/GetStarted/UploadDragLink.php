@@ -2,6 +2,7 @@
 
 namespace App\Livewire\GetStarted;
 
+use App\Services\LLMService;
 use Illuminate\Support\Facades\Storage;
 use Livewire\WithFileUploads;
 use Livewire\Component;
@@ -27,6 +28,11 @@ class UploadDragLink extends Component
         Storage::put($filePath, base64_decode($fileData['content']));
 
         $this->fileContent = $this->readFileContent($fileData['content'], $this->fileType, $filePath);
+
+        $llm = new LLMService();
+
+        // only for testing
+        dd($llm->generateQuiz($this->fileContent));
 
         $this->dispatch('file-uploaded', [
             'content' => $this->fileContent,
